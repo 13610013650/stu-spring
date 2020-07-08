@@ -6,8 +6,11 @@
                "http://www.springframework.org/schema/beans
                 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <import resource="classpath:spring/spring.xml"/>
+
     <bean id="userService" class="cn.stu.service.impl.UserServiceImpl" />
 
-    <import resource="classpath:spring/spring.xml"/>
+    <bean id="context" class="cn.stu.service.impl.ContextServiceImpl"/>
+
 
 </beans>

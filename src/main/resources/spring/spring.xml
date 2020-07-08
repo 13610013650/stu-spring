@@ -5,14 +5,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="context" class="cn.stu.service.impl.ContextServiceImpl"/>
-
-
-     <!--websocket处理类 -->
+    <!-- websocket处理类 -->
     <bean id="msgHandler" class="cn.stu.websocket.MyWebSocketHandler" />
 
     <!-- 握手接口/拦截器 ，看项目需求是否需要 -->
-    <bean id="handshakeInterceptor" class="cn.stu.websocket.MyHandshakeInterceptor" />
+    <bean id="handshakeInterceptor" class="cn.stu.websocket.MyHandshakeInterceptor"/>
 
     <!-- 握手接口/拦截器 ，看项目需求是否需要 -->
     <websocket:handlers>
@@ -22,13 +19,13 @@
         </websocket:handshake-interceptors>
     </websocket:handlers>
 
-    <!-- 注册 sockJS,sockJs是spring对不能使用websocket协议的客户端提供一种模拟 -->
+    <!-- 注册sockJS,sockJs是spring对不能使用websocket协议的客户端提供一种模拟 -->
     <websocket:handlers>
         <websocket:mapping path="/sockjs/websocket" handler="msgHandler" />
         <websocket:handshake-interceptors>
             <ref bean="handshakeInterceptor"/>
         </websocket:handshake-interceptors>
-        <websocket:sockjs />
+        <websocket:sockjs/>
     </websocket:handlers>
 
 </beans>
